@@ -14,6 +14,9 @@ class Mover{
    //suppose mass=1  --> Force=Acceleration
    //F=M*A
    //F=1*A -- > F=A
+   //Accumulate forces 
+   // acceleration = 0 ; every frame
+   //add force to acceleration.
     acceleration.add(force);
   }
   
