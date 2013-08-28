@@ -10,15 +10,20 @@ class Mover{
     acceleration = new PVector(0,0);
   }
   
+  void applyForce(PVector force){
+   //suppose mass=1  --> Force=Acceleration
+   //F=M*A
+   //F=1*A -- > F=A
+    acceleration.add(force);
+  }
+  
   void update(){
-    PVector mouse = new PVector(mouseX, mouseY);
-    mouse.sub(location);
-    mouse.mult(0.05);
+  
     
-    acceleration = mouse;
     velocity.add(acceleration);
     location.add(velocity);
-    velocity.limit(5);
+    acceleration.mult(0);
+    //velocity.limit(5);
   }
   
   void display() {
@@ -31,18 +36,19 @@ class Mover{
   void checkEdges() {
 
     if (location.x > width) {
-      location.x = 0;
+      location.x = width;
+      velocity.x *=-1;
     } 
     else if (location.x < 0) {
-      location.x = width;
+      location.x = 0; 
+      velocity.x*=-1;
     }
 
     if (location.y > height) {
-      location.y = 0;
-    } 
-    else if (location.y < 0) {
       location.y = height;
-    }
+      velocity.y*=-1;
+    } 
+    
   }
   
 }
