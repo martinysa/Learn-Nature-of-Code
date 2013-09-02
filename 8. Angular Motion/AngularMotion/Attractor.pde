@@ -13,7 +13,7 @@ class Attractor {
 
   Attractor() {
     location = new PVector(0,0);
-    mass = 20;
+    mass = 30;
     g = 0.4;
   }
 
