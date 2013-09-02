@@ -39,7 +39,7 @@ void draw() {
    friction.normalize();
    friction.mult(-1);
    
-   float c=0.11;
+   float c=0.31;
    friction.mult(c);
    movers[i].applyForce(friction);
  
