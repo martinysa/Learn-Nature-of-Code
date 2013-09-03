@@ -22,6 +22,7 @@ void draw() {
   lights();
   translate(width/2,height/2);
   rotateZ(angle);
+  rotateY(angle);
 
   
   a.display();
