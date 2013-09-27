@@ -1,4 +1,4 @@
-Vehicle[] v = new Vehicle[1];
+Vehicle[] v = new Vehicle[10];
 
 
 void setup(){

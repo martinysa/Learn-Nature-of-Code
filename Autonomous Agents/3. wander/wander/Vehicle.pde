@@ -18,7 +18,7 @@ class Vehicle {
     velocity = new PVector(0,-2);
     location = new PVector(x,y);
     r = 6;
-    maxspeed = random(1,2);
+    maxspeed = random(.5,1);
     maxforce = 0.1;
     renderColor = 127;
     
