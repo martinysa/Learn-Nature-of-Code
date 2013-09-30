@@ -23,7 +23,7 @@ class Vehicle {
     renderColor = 127;
     
     wanderAlpha = 0;
-    wanderRadius = 40;
+    wanderRadius = 30;
     circleWanderPosition = new PVector(0,0);
     wanderOffset = new PVector(0,0);
   }
@@ -81,7 +81,7 @@ class Vehicle {
     float clock = random(2);
 
     
-    if(clock > 1.1){
+    if(clock > 1){
       //add negative
       wanderAlpha -= change;
     }else{
