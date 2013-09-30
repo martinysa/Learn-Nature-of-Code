@@ -17,17 +17,13 @@ class Vehicle {
     acceleration = new PVector(0,0);
     velocity = new PVector(0,-2);
     location = new PVector(x,y);
-    r = 6;
-    maxspeed = random(.5,1);
+    r = 3;
+    maxspeed = random(3,5);
     maxforce = 0.1;
     renderColor = 127;
     
     wanderAlpha = 0;
-<<<<<<< HEAD
-    wanderRadius = 30;
-=======
     wanderRadius = 25;
->>>>>>> 32142ecbf5e83fcb4b2549f621a52e19c02459b7
     circleWanderPosition = new PVector(0,0);
     wanderOffset = new PVector(0,0);
   }
@@ -110,6 +106,14 @@ class Vehicle {
     
   }
   
+   void follow(FlowField flow) {
+    PVector desired = flow.lookup(location);
+    desired.mult(maxspeed);
+    PVector steer = PVector.sub(desired, velocity);
+    steer.limit(maxforce);
+    applyForce(steer);
+  }
+  
     
   void display() {
     // Draw a triangle rotated in the direction of velocity
@@ -119,16 +123,7 @@ class Vehicle {
     strokeWeight(1);
   
   
-    //Wander stuff
-    if(mousePressed){
-      fill(0,0);
-      line(location.x,location.y,circleWanderPosition.x,circleWanderPosition.y);
-      ellipse(circleWanderPosition.x,circleWanderPosition.y,wanderRadius*2,wanderRadius*2);    
-      //Draw radius
-      stroke(255,0,0,200);
-      line(circleWanderPosition.x,circleWanderPosition.y,wanderOffset.x,wanderOffset.y);  
-      ellipse(wanderOffset.x,wanderOffset.y,wanderRadius/4,wanderRadius/4);    
-    }
+    
           
     //Vehicle
     pushMatrix();
